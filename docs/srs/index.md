@@ -4,18 +4,22 @@
 
 ## Tabla de Contenidos
 
+- [Introducción](#introducción)
+    - [Glosario](#glosario)
+    - [Resumen](#resumen)
+
 ## Introducción
 
-### Propósito
-- Propósito de SRS
-- Público a quien va dirigido
+El presente documento define los requerimientos de la app «Rueda de Consecuencias» (```rdcons```) para quienes estén involucrados en el desarrollo de la primera versión.
 
-### Alcance
-- Nombre de producto
-- Qué sí y nó hará
-- Descripción de app: beneficios y objetivos
+La app es una herramienta gráfica de desarrollo de escenarios y consecuencias, donde se parte con un lienzo en blanco, se crean nodos con **Hechos** conocidos, y surgen más nodos con **Consecuencias** a partir de estos y de otras Consecuencias.
+
+El objetivo de esta herramienta es proveer un tablero digital para organizar ideas y desarrollar escenarios. Esta herramienta no contempla ningún tipo de análisis entre los nodos y sus contenidos.
 
 ### Glosario
+
+- Consecuencias: tipo de nodo con consecuencias desarrolladas
+- Hechos: tipo de nodo con hechos conocidos
 
 ### Resumen
 - Contenido de SRS
