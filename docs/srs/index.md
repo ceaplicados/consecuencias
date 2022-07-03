@@ -4,9 +4,37 @@
 
 ## Tabla de Contenidos
 
-- [Introducción](#introducción)
+- [Especificación de Requerimientos de Software](#especificación-de-requerimientos-de-software)
+  - [Tabla de Contenidos](#tabla-de-contenidos)
+  - [Introducción](#introducción)
     - [Glosario](#glosario)
+    - [Referencias](#referencias)
     - [Resumen](#resumen)
+  - [Descripción General](#descripción-general)
+    - [Perspectiva de Producto](#perspectiva-de-producto)
+      - [Usuario](#usuario)
+      - [Comunicación](#comunicación)
+      - [Memoria](#memoria)
+    - [Funciones de Producto](#funciones-de-producto)
+    - [Características de Usuario](#características-de-usuario)
+    - [Restricciones](#restricciones)
+    - [Dependencias](#dependencias)
+  - [Requerimientos Específicos](#requerimientos-específicos)
+    - [Requerimientos de Interfaces Externas](#requerimientos-de-interfaces-externas)
+      - [Interfaces de Usuario](#interfaces-de-usuario)
+      - [Interfaces de Software](#interfaces-de-software)
+      - [Interfaces de Comunicación](#interfaces-de-comunicación)
+    - [Features](#features)
+    - [Desempeño](#desempeño)
+    - [Lógica de Base de Datos](#lógica-de-base-de-datos)
+    - [Limitantes de Diseño](#limitantes-de-diseño)
+      - [Reliability](#reliability)
+      - [Disponibilidad](#disponibilidad)
+      - [Seguridad](#seguridad)
+      - [Mantenibilidad](#mantenibilidad)
+      - [Portabilidad](#portabilidad)
+    - [Comentarios Adicionales](#comentarios-adicionales)
+  - [Apéndices](#apéndices)
 
 ## Introducción
 
@@ -21,6 +49,10 @@ El objetivo de esta herramienta es proveer un tablero digital para organizar ide
 - Consecuencias: tipo de nodo con consecuencias desarrolladas
 - Hechos: tipo de nodo con hechos conocidos
 
+### Referencias
+
+Fyrd. (2022). *Can I use ECMAScript 2015 (ES6)?*. Recuperado 2022-07-03: [https://caniuse.com/?search=es6](https://caniuse.com/?search=es6)
+
 ### Resumen
 - Contenido de SRS
 - Organización
@@ -28,39 +60,67 @@ El objetivo de esta herramienta es proveer un tablero digital para organizar ide
 ## Descripción General
 
 ### Perspectiva de Producto
-- ¿El producto es independiente o es parte de un sistema mayor? ¿qué interacciones hay?
-- Interfaces con restricciones:
+
+«Rueda de Consecuencias» es un producto independiente de otros sistemas. A continuación se describen las interfaces que deben considerarse y sus restricciones.
 
 #### Usuario
-- Características lógicas de interfaces entre producto y usuario (e. g. formatos de pantalla/ventana, menús, function keys)
-- Optimización de interfaz para usuarios (do's and don't's)
+
+- Uso a través de un navegador
+- El lienzo de trabajo es el enfoque principal de la pantalla
+- Formato horizontal para uso desde una computadora
+- Teclas de función para cortar, copiar, pegar y funciones adicionales
 
 #### Comunicación
-- Interfaces de red, protocolos, etc.
+
+- Control de acceso por usuarios
+- Diseño de API de lectura y escritura
+- Protocolo de trabajo concurrente
+- Seguridad e integridad de datos
 
 #### Memoria
-- Límites en memoria primaria y secundaria
 
-#### Operaciones
-- Operaciones requeridas por usuario: modo de operación, períodos de inactividad, operaciones asíncronas, procesamiento de datos, respaldos y recuperación
+- Uso de 512 MB de RAM como máximo
+- Uso de 10 GB de almacenamiento SSD como máximo
+
+Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalOcean Droplets para su uso durante desarrollo y pruebas, pero se espera que los requerimientos sean mayores cuando la app se encuentre en producción.
 
 ### Funciones de Producto
-- Funciones principales del producto
-- Diagramas para mostrar relaciones lógicas entre funciones y variables
+
+- Creación de lienzos
+- Compartición de lienzos (a usuarios o por enlace)
+- Gestión de permisos de usuarios por lienzo
+- Creación de nodos con:
+    - Nombre
+    - Archivos adjuntos
+    - Cuerpo (e. g. imágenes, texto con formato)
+    - Tipo (i. e. Hecho, Consecuencia)
+    - Nodos de donde se origina
+    - Nodos a los que da origen
+- Modificación de propiedades de los nodos
+- Eliminación de nodos
+- Desplazamiento de nodos en el lienzo
+- Exportación de lienzo a imagen o documento
+- Almacenamiento de texto considerando caracteres no latinos (e. g. emojis)
+- Autoguardado
+- Almacenamiento de versiones pasadas para respaldo
 
 ### Características de Usuario
-- Nivel educativo
-- Experiencia
-- Dominio técnico
+
+- Nivel educativo: al menos, estudiantes de preparatoria
+- Nivel de dominio: conocimiento y trabajo previo con tecnologías digitales
 
 ### Restricciones
-- Regulaciones legales
-- Hardware
-- Interfaces con otras aplicaciones
-- Operaciones paralelas
-- Funciones de auditoría
-- Reliability
-- Seguridad
+
+- Ley Federal de Protección de Datos Personales en Posesión de los Particulares
+- Concurrencia:
+    - Edición simultánea de lienzo
+    - Edición simultánea de propiedades de nodo
+- Seguridad e integridad de datos de usuario
+- Desarrollo basado en pruebas para asegurar mantenibilidad a largo plazo
+
+### Dependencias
+
+- Navegador  con soporte de ES6 (e. g. Edge 79+, Firefox 54+, Chrome 51+, Safari 10+ y Opera 38+; [Fyrd, 2022](#referencias))
 
 ## Requerimientos Específicos
 - Descripción de input y output como mínimo
