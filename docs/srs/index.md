@@ -121,20 +121,8 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
 - Navegador  con soporte de ES6 (e. g. Edge 79+, Firefox 54+, Chrome 51+, Safari 10+ y Opera 38+; [Fyrd, 2022](#referencias))
 
 ## Requerimientos Específicos
-- Descripción de input y output como mínimo
-- Requerimientos únicos
 
 ### Features
-- Validación de input
-- Secuencia de operaciones
-- Casos anormales:
-    - Overflow
-    - Facilities
-    - Manejo de errores y recuperación
-- Efecto de parámetros
-- Relación de output a input
-    - Secuencias
-    - Fórmulas para conversión
 
 1. Crear lienzo
     - Requisitos:
@@ -142,8 +130,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Está en su tablero de lienzos
     - Estímulo: clic en botón de creación
     - Respuesta: se direcciona navegador a una pantalla de carga y posteriormente un lienzo en blanco
-    - Requerimientos funcionales asociados:
-        - ...
 
 2. Eliminar lienzo
     - Requisitos:
@@ -154,8 +140,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se despliega diálogo para confirmar, si se se confirma, se elimina y desaparece el lienzo
     - Excepciones:
         - Si el lienzo ya no existe, se despliega diálogo de notificación
-    - Requerimientos funcionales asociados:
-        - ...
 
 3. Cambiar nombre de lienzo
     - Requisitos:
@@ -166,8 +150,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se despliega diálogo para cambiar y confirmar
     - Excepciones:
         - Si el lienzo ya no existe, se despliega diálogo de error y, al cerrar, se redirecciona a tablero
-    - Requerimientos funcionales asociados:
-        - ...
 
 4. Tablero de lienzos
     - Requisitos:
@@ -176,8 +158,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: página con tableros del usuario
     - Excepciones:
         - Si no existe una sesión, redireccionar a página principal
-    - Requerimientos funcionales asociados:
-        - ...
 
 5. Guardar de lienzo
     - Requisitos:
@@ -188,8 +168,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se guarda archivo y se muestra un mensaje de confirmación con fecha y hora de último guardado en la esquina de la pantalla
     - Excepciones:
         - Si el lienzo ya no existe, se despliega diálogo de error y, al cerrar, se redirecciona a tablero
-    - Requerimientos funcionales asociados:
-        - ...
 
 6. Compartir de lienzo
     - Requisitos:
@@ -200,8 +178,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se despliega diálogo con botón para hacer público el lienzo y generar enlace, cuadro de texto para agregar correo o nombre de usuario y enviar invitación, y lista de usuarios con acceso y botón de eliminación
     - Excepciones:
         - Si el nombre de usuario o correo no existe, se despliega mensaje de error junto al nombre del campo
-    - Requerimientos funcionales asociados:
-        - ...
 
 7. Eliminar acceso a lienzo
     - Requisitos:
@@ -212,8 +188,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se despliega diálogo de confirmación
     - Excepciones:
         - El usuario dueño no tiene un botón de eliminación de acceso
-    - Requerimientos funcionales asociados:
-        - ...
 
 8. Crear nodo
     - Requisitos:
@@ -226,8 +200,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Si el título está vacío, se despliega mensaje de error al costado del botón de confirmación
         - Considerar edición simultánea por varios usuarios
         - Si una imagen o archivo adjunto no han terminado de cargarse, se despliega mensaje de espera al costado del botón de confirmación
-    - Requerimientos funcionales asociados:
-        - ...
 
 9. Mover nodo
     - Requisitos:
@@ -239,8 +211,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: el nodo sigue la ubicación del cursor y se queda donde se levanta el clic
     - Excepciones:
         - Si el nodo ya está siendo movido por otro usuario, no se permite a un segundo hacerlo al mismo tiempo
-    - Requerimientos funcionales asociados:
-        - ...
 
 10. Editar nodo
     - Requisitos:
@@ -252,8 +222,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si el título está vacío, se despliega mensaje de error al costado del botón de confirmación
         - Considerar edición simultánea por varios usuarios
-    - Requerimientos funcionales asociados:
-        - ...
 
 11. Adjuntar archivo
     - Requisitos:
@@ -264,8 +232,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se despliega ventana de selección de archivos para seleccionar archivo no mayor a 2 MB y se despliega miniatura según tipo de archivo con una barra de carga
     - Excepciones:
         - Si el archivo pesa más de 2 MB, se aborta carga y se despliega mensaje de error junto al botón de adjunción
-    - Requerimientos funcionales asociados:
-        - ...
 
 12. Agregar imagen al cuerpo
     - Requisitos:
@@ -276,8 +242,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se despliega ventana de selección de archivos para seleccionar imagen no mayor a 2 MB y se despliega en el cuerpo con una altura máxima predefinida
     - Excepciones:
         - Si el formato de la imagen es distinto de JPG, JPEG, PNG o GIF, se despliega mensaje de error junto al botón de adición
-    - Requerimientos funcionales asociados:
-        - ...
 
 13. Pegar imagen en el cuerpo
     - Requisitos:
@@ -288,8 +252,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se carga la imagen y se despliega en el cuerpo con una altura máxima predefinida
     - Excepciones:
         - Si la imagen pesa más de 2 MB, se despliega mensaje de error sobre el campo
-    - Requerimientos funcionales asociados:
-        - ...
 
 14. Crear relación entre nodos
     - Requisitos:
@@ -301,8 +263,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Respuesta: se crea una línea entre el primer nodo y el ratón hasta alcanzar el segundo nodo, y se establece una relación unidireccional
     - Excepciones:
         - Si se presiona Esc antes de alcanzar el segundo nodo, se elimina la línea y no se crea la relación
-    - Requerimientos funcionales asociados:
-        - ...
 
 15. Eliminar relación entre nodos
     - Requisitos:
@@ -312,8 +272,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Existen dos nodos con una relación entre ellos
     - Estímulo: clic sobre la línea de relación con herramienta de eliminación seleccionada
     - Respuesta: se elimina línea de relación unidireccional
-    - Requerimientos funcionales asociados:
-        - ...
 
 16. Eliminar nodo
     - Requisitos:
@@ -323,8 +281,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Existe un nodo
     - Estímulo: clic en botón de eliminación en menú contextual o sobre nodo con herramienta de eliminación seleccionada
     - Respuesta: se despliega diálogo de confirmación
-    - Requerimientos funcionales asociados:
-        - ...
 
 17. Organizar nodos automáticamente
     - Requisitos:
@@ -333,8 +289,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Es dueño o colaborador de lienzo
     - Estímulo: clic en el botón de organización automática en la pantalla de edición
     - Respuesta: organización de nodos en cuadrícula de acuerdo con tamaño A4 expandiéndose hacia abajo
-    - Requerimientos funcionales asociados:
-        - ...
 
 18. Exportar lienzo como imagen o PDF
     - Requisitos:
@@ -343,8 +297,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Es dueño o colaborador de lienzo
     - Estímulo: clic en botón de exportación en la pantalla de edición
     - Respuesta: despliegue de diálogo para seleccionar formato, transparencia, dimensiones, opción de organización de nodos automática sin modificar documento, y botón de descarga
-    - Requerimientos funcionales asociados:
-        - ...
 
 ### Desempeño
 
