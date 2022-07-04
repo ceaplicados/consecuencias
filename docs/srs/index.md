@@ -48,7 +48,7 @@ El objetivo de esta herramienta es proveer un tablero digital para organizar ide
 
 Fyrd. (2022). *Can I use ECMAScript 2015 (ES6)?*. Recuperado 2022-07-03: [https://caniuse.com/?search=es6](https://caniuse.com/?search=es6)
 
-IEEE. (1998). *IEEE Recommended Practice for Software Requirements Specifications*.
+IEEE. (1998). *IEEE Recommended Practice for Software Requirements Specifications*. Recuperado 2022-07-03: [http://www.cse.msu.edu/~cse870/IEEEXplore-SRS-template.pdf](http://www.cse.msu.edu/~cse870/IEEEXplore-SRS-template.pdf)
 
 ### Resumen
 - Contenido de SRS
