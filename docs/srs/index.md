@@ -122,6 +122,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
 1. Crear lienzo
     - Requisitos:
         - Usuario con sesión iniciada
+        - Dirección de correo confirmada
         - Está en su tablero de lienzos
     - Estímulo: clic en botón de creación
     - Respuesta: se direcciona navegador a una pantalla de carga y posteriormente un lienzo en blanco
@@ -152,10 +153,11 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Estímulo: acceso a URL de tablero o clic en botón de Tablero de menú lateral
     - Respuesta:
         - Página con tableros del usuario
-        - Barra de navegación con enlaces a página principal, tablero, centro de ayuda y gestión de perfil
+        - Barra de navegación con enlaces a página principal, tablero, centro de ayuda (redirecciona a documentación en GitHub Pages) y gestión de perfil
         - Menú lateral con botones Tablero y Lienzos compartidos conmigo
         - Barra horizontal con miniaturas de lienzos compartidos conmigo
         - Cuadrícula con miniaturas de lienzos propios donde la primera miniatura es el botón de creación de lienzo
+        - Recordatorio de confirmación de direccion si esta no ha sido confirmada
     - Excepciones:
         - Si no existe una sesión, redireccionar a página principal
 
@@ -165,13 +167,14 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Estímulo: acceso a URL de tablero o clic en botón de Tablero de menú lateral
     - Respuesta:
         - Página con tableros compartidos conmigo
-        - Barra de navegación con enlaces a página principal, tablero, centro de ayuda y gestión de perfil
+        - Barra de navegación con enlaces a página principal, tablero, centro de ayuda (redirecciona a documentación en GitHub Pages) y gestión de perfil
         - Menú lateral con botones Tablero y Lienzos compartidos conmigo
         - Cuadrícula con miniaturas de lienzos compartidos conmigo
+        - Recordatorio de confirmación de direccion si esta no ha sido confirmada
     - Excepciones:
         - Si no existe una sesión, redireccionar a página principal
 
-6. Guardar de lienzo
+6. Guardar lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -181,7 +184,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si el lienzo ya no existe, se despliega diálogo de error y, al cerrar, se redirecciona a tablero
 
-7. Compartir de lienzo
+7. Compartir lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en su tablero de lienzos o en la pantalla de edición de lienzo
@@ -314,7 +317,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Está en la pantalla de edición de lienzo
         - Es dueño o colaborador de lienzo
     - Estímulo: clic en el botón de organización automática en la pantalla de edición
-    - Respuesta: organización de nodos en cuadrícula de acuerdo con tamaño A4 expandiéndose hacia abajo
+    - Respuesta: se organizan los nodos en cuadrícula de acuerdo con tamaño A4 expandiéndose hacia abajo
 
 20. Exportar lienzo como imagen o PDF
     - Requisitos:
@@ -322,7 +325,35 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Está en su tablero de lienzos o en la pantalla de edición de lienzo
         - Es dueño o colaborador de lienzo
     - Estímulo: clic en botón de exportación en la pantalla de edición
-    - Respuesta: despliegue de diálogo para seleccionar formato, transparencia, dimensiones, opción de organización de nodos automática sin modificar documento, y botón de descarga
+    - Respuesta: se despliega de diálogo para seleccionar formato, transparencia, dimensiones, opción de organización de nodos automática sin modificar documento, y botón de descarga
+
+21. Crear usuario
+    - Requisitos:
+        - Estar en formulario de creación de usuario
+    - Estímulo: clic en botón de creación tras haber llenado la forma
+    - Respuesta: se redirecciona a Tablero
+    - Excepciones:
+        - Si la información de alguno de los campos de la forma está incompleta o malformada, se despliega un mensaje de error junto al nombre del campo
+        - Si la dirección de correo ya fue utilizada para crear una cuenta, se despliega un mensaje con hipervínculo para reestablecer la contraseña
+        - Si no puede crearse la cuenta, se despliega un mensaje de error
+
+22. Iniciar sesión
+    - Requisitos:
+        - Un usuario debe existir
+    - Estímulo: clic en botón de inicio de sesión tras haber llenado los campos
+    - Respuesta: se redirecciona a Tablero
+    - Excepciones:
+        - Si la información de alguno de los campos está incompleta o malformada, se despliega un mensaje de error junto al nombre del campo
+        - Si la totalidad de la información de inicio de sesión no coincide con algún registro, se despliega mensaje informativo
+
+23. Reestablecer contraseña olvidada
+    - Requisitos:
+        - Debe existir un registro con una dirección de correo
+    - Estímulo: clic en botón de reestablecimiento tras haber llenado campo de correo
+    - Respuesta: se redirecciona a página de confirmación
+    - Excepciones:
+        - Si la cuenta no había confirmado su correo, se confirma al reestablecer la contraseña
+        - Si la cuenta no existe, se despliega mensaje informativo
 
 ### Desempeño
 
