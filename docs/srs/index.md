@@ -32,7 +32,7 @@
 
 ## Introducción
 
-El presente documento define los requerimientos de la app «Rueda de Consecuencias» (```rdcons```) para quienes estén involucrados en el desarrollo de la primera versión.
+El presente documento define los requerimientos de la app «Rueda de Consecuencias» (```rdcons```) para quienes estén involucrados en el desarrollo de la primera versión. El documento sigue el esquema descrito por el estándar 830 de [IEEE (1998)](#referencias).
 
 La app es una herramienta gráfica de desarrollo de escenarios y consecuencias, donde se parte con un lienzo en blanco, se crean nodos con **Hechos** conocidos, y surgen más nodos con **Consecuencias** a partir de estos y de otras Consecuencias.
 
@@ -46,6 +46,8 @@ El objetivo de esta herramienta es proveer un tablero digital para organizar ide
 ### Referencias
 
 Fyrd. (2022). *Can I use ECMAScript 2015 (ES6)?*. Recuperado 2022-07-03: [https://caniuse.com/?search=es6](https://caniuse.com/?search=es6)
+
+IEEE. (1998). *IEEE Recommended Practice for Software Requirements Specifications*.
 
 ### Resumen
 - Contenido de SRS
