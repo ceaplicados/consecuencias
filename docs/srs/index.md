@@ -1,6 +1,6 @@
 # Especificación de Requerimientos de Software
 
-*Fecha de última revisión: 2022-07-03*
+*Fecha de última revisión: 2022-07-04*
 
 ## Tabla de Contenidos
 
@@ -146,15 +146,32 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si el lienzo ya no existe, se despliega diálogo de error y, al cerrar, se redirecciona a tablero
 
-4. Tablero de lienzos
+4. Tablero de lienzos propios
     - Requisitos:
         - Usuario con sesión iniciada
-    - Estímulo: acceso a URL de tablero
-    - Respuesta: página con tableros del usuario
+    - Estímulo: acceso a URL de tablero o clic en botón de Tablero de menú lateral
+    - Respuesta:
+        - Página con tableros del usuario
+        - Barra de navegación con enlaces a página principal, tablero, centro de ayuda y gestión de perfil
+        - Menú lateral con botones Tablero y Lienzos compartidos conmigo
+        - Barra horizontal con miniaturas de lienzos compartidos conmigo
+        - Cuadrícula con miniaturas de lienzos propios donde la primera miniatura es el botón de creación de lienzo
     - Excepciones:
         - Si no existe una sesión, redireccionar a página principal
 
-5. Guardar de lienzo
+5. Tablero de lienzos compartidos conmigo
+    - Requisitos:
+        - Usuario con sesión iniciada
+    - Estímulo: acceso a URL de tablero o clic en botón de Tablero de menú lateral
+    - Respuesta:
+        - Página con tableros compartidos conmigo
+        - Barra de navegación con enlaces a página principal, tablero, centro de ayuda y gestión de perfil
+        - Menú lateral con botones Tablero y Lienzos compartidos conmigo
+        - Cuadrícula con miniaturas de lienzos compartidos conmigo
+    - Excepciones:
+        - Si no existe una sesión, redireccionar a página principal
+
+6. Guardar de lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -164,7 +181,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si el lienzo ya no existe, se despliega diálogo de error y, al cerrar, se redirecciona a tablero
 
-6. Compartir de lienzo
+7. Compartir de lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en su tablero de lienzos o en la pantalla de edición de lienzo
@@ -174,7 +191,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si el nombre de usuario o correo no existe, se despliega mensaje de error junto al nombre del campo
 
-7. Eliminar acceso a lienzo
+8. Eliminar acceso a lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Es dueño o colaborador de lienzo
@@ -184,7 +201,21 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - El usuario dueño no tiene un botón de eliminación de acceso
 
-8. Crear nodo
+9. Página de lienzo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: acceso a URL de lienzo
+    - Respuesta:
+        - Página de edición de lienzo
+        - Barra con nombre de lienzo, botones de guardado, exportación, organización automática, y compartición, y herramientas de eliminación, relación, y cursor normal
+        - Lienzo cuadriculado
+        - Miniatura del lienzo completo en la esquina
+    - Excepciones:
+        - Si no existe el lienzo, redireccionar a página principal
+
+10. Crear nodo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -196,7 +227,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Considerar edición simultánea por varios usuarios
         - Si una imagen o archivo adjunto no han terminado de cargarse, se despliega mensaje de espera al costado del botón de confirmación
 
-9. Mover nodo
+11. Mover nodo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -207,7 +238,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si el nodo ya está siendo movido por otro usuario, no se permite a un segundo hacerlo al mismo tiempo
 
-10. Editar nodo
+12. Editar nodo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -218,7 +249,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
         - Si el título está vacío, se despliega mensaje de error al costado del botón de confirmación
         - Considerar edición simultánea por varios usuarios
 
-11. Adjuntar archivo
+13. Adjuntar archivo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en diálogo de creación o edición de nodo
@@ -228,7 +259,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si el archivo pesa más de 2 MB, se aborta carga y se despliega mensaje de error junto al botón de adjunción
 
-12. Agregar imagen al cuerpo
+14. Agregar imagen al cuerpo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en diálogo de creación o edición de nodo
@@ -238,7 +269,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si el formato de la imagen es distinto de JPG, JPEG, PNG o GIF, se despliega mensaje de error junto al botón de adición
 
-13. Pegar imagen en el cuerpo
+15. Pegar imagen en el cuerpo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en diálogo de creación o edición de nodo
@@ -248,7 +279,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si la imagen pesa más de 2 MB, se despliega mensaje de error sobre el campo
 
-14. Crear relación entre nodos
+16. Crear relación entre nodos
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -259,7 +290,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Excepciones:
         - Si se presiona Esc antes de alcanzar el segundo nodo, se elimina la línea y no se crea la relación
 
-15. Eliminar relación entre nodos
+17. Eliminar relación entre nodos
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -268,7 +299,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Estímulo: clic sobre la línea de relación con herramienta de eliminación seleccionada
     - Respuesta: se elimina línea de relación unidireccional
 
-16. Eliminar nodo
+18. Eliminar nodo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -277,7 +308,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Estímulo: clic en botón de eliminación en menú contextual o sobre nodo con herramienta de eliminación seleccionada
     - Respuesta: se despliega diálogo de confirmación
 
-17. Organizar nodos automáticamente
+19. Organizar nodos automáticamente
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -285,7 +316,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Estímulo: clic en el botón de organización automática en la pantalla de edición
     - Respuesta: organización de nodos en cuadrícula de acuerdo con tamaño A4 expandiéndose hacia abajo
 
-18. Exportar lienzo como imagen o PDF
+20. Exportar lienzo como imagen o PDF
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en su tablero de lienzos o en la pantalla de edición de lienzo
