@@ -42,6 +42,7 @@ El objetivo de esta herramienta es proveer un tablero digital para organizar ide
 
 - Consecuencias: tipo de nodo con consecuencias desarrolladas
 - Hechos: tipo de nodo con hechos conocidos
+- Diágogo: ventana dentro de la app, no se refiere a los diálogos del navegador
 
 ### Referencias
 
@@ -87,7 +88,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
 - Gestión de permisos de usuarios por lienzo
 - Eliminación de lienzos
 - Creación de nodos con:
-    - Nombre
+    - Título
     - Archivos adjuntos
     - Cuerpo (e. g. imágenes, texto con formato)
     - Tipo (i. e. Hecho, Consecuencia)
@@ -135,7 +136,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Secuencias
     - Fórmulas para conversión
 
-1. Creación de lienzo
+1. Crear lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en su tablero de lienzos
@@ -144,7 +145,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Requerimientos funcionales asociados:
         - ...
 
-2. Eliminación de lienzo
+2. Eliminar lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en su tablero de lienzos
@@ -152,11 +153,11 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Estímulo: clic en botón de eliminación en menú contextual del lienzo
     - Respuesta: se despliega diálogo para confirmar, si se se confirma, se elimina y desaparece el lienzo
     - Excepciones:
-        - ...
+        - Si el lienzo ya no existe, se despliega diálogo de notificación
     - Requerimientos funcionales asociados:
         - ...
 
-3. Cambio de nombre de lienzo
+3. Cambiar nombre de lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en su tablero de lienzos o en la pantalla de edición de lienzo
@@ -178,7 +179,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Requerimientos funcionales asociados:
         - ...
 
-5. Guardar lienzo
+5. Guardar de lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en la pantalla de edición de lienzo
@@ -190,38 +191,160 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Requerimientos funcionales asociados:
         - ...
 
-6. Compartir lienzo
+6. Compartir de lienzo
     - Requisitos:
         - Usuario con sesión iniciada
         - Está en su tablero de lienzos o en la pantalla de edición de lienzo
         - Es dueño o colaborador de lienzo
     - Estímulo: clic en botón de compartición en menú contextual del lienzo o en la pantalla de edición
-    - Respuesta: se despliega diálogo con botón para hacer público el lienzo y generar enlace, y cuadro de texto para agregar correo o nombre de usuario y enviar invitación
+    - Respuesta: se despliega diálogo con botón para hacer público el lienzo y generar enlace, cuadro de texto para agregar correo o nombre de usuario y enviar invitación, y lista de usuarios con acceso y botón de eliminación
     - Excepciones:
-        - Si el nombre de usuario o correo no existe, se despliega diálogo de error
+        - Si el nombre de usuario o correo no existe, se despliega mensaje de error junto al nombre del campo
     - Requerimientos funcionales asociados:
         - ...
 
-7. Remover usuarios con acceso a lienzo
+7. Eliminar acceso a lienzo
     - Requisitos:
-        - ...
-    - Estímulo:
-    - Respuesta:
+        - Usuario con sesión iniciada
+        - Es dueño o colaborador de lienzo
+        - Está en el diálogo de compartición
+    - Estímulo: clic en el botón de eliminación de un usuario
+    - Respuesta: se despliega diálogo de confirmación
     - Excepciones:
-        - ...
+        - El usuario dueño no tiene un botón de eliminación de acceso
     - Requerimientos funcionales asociados:
         - ...
 
-7. Feature
+8. Crear nodo
     - Requisitos:
-        - ...
-    - Estímulo:
-    - Respuesta:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en botón de creación o clic en lienzo
+    - Respuesta: se despliega diálogo para agregar información (i. e. título, archivos adjuntos, cuerpo, tipo) y confirmar creación de nodo, y el nodo se coloca en la primera posición disponible (criterios: 1. superior, 2. izquierda) o en la posición del clic
     - Excepciones:
-        - ...
+        - Si el título está vacío, se despliega mensaje de error al costado del botón de confirmación
+        - Considerar edición simultánea por varios usuarios
+        - Si una imagen o archivo adjunto no han terminado de cargarse, se despliega mensaje de espera al costado del botón de confirmación
     - Requerimientos funcionales asociados:
         - ...
 
+9. Mover nodo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+        - Existe un nodo
+    - Estímulo: clic y arraste en nodo
+    - Respuesta: el nodo sigue la ubicación del cursor y se queda donde se levanta el clic
+    - Excepciones:
+        - Si el nodo ya está siendo movido por otro usuario, no se permite a un segundo hacerlo al mismo tiempo
+    - Requerimientos funcionales asociados:
+        - ...
+
+10. Editar nodo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en botón de edición en menú contextual de nodo
+    - Respuesta: se despliega el mismo diálogo que para crear nodo con la información del nodo
+    - Excepciones:
+        - Si el título está vacío, se despliega mensaje de error al costado del botón de confirmación
+        - Considerar edición simultánea por varios usuarios
+    - Requerimientos funcionales asociados:
+        - ...
+
+11. Adjuntar archivo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en diálogo de creación o edición de nodo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en botón de adjunción de archivos
+    - Respuesta: se despliega ventana de selección de archivos para seleccionar archivo no mayor a 2 MB y se despliega miniatura según tipo de archivo con una barra de carga
+    - Excepciones:
+        - Si el archivo pesa más de 2 MB, se aborta carga y se despliega mensaje de error junto al botón de adjunción
+    - Requerimientos funcionales asociados:
+        - ...
+
+12. Agregar imagen al cuerpo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en diálogo de creación o edición de nodo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en el botón de adición de imagen
+    - Respuesta: se despliega ventana de selección de archivos para seleccionar imagen no mayor a 2 MB y se despliega en el cuerpo con una altura máxima predefinida
+    - Excepciones:
+        - Si el formato de la imagen es distinto de JPG, JPEG, PNG o GIF, se despliega mensaje de error junto al botón de adición
+    - Requerimientos funcionales asociados:
+        - ...
+
+13. Pegar imagen en el cuerpo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en diálogo de creación o edición de nodo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en Pegar en menú contextual de clic derecho o Ctrl+V
+    - Respuesta: se carga la imagen y se despliega en el cuerpo con una altura máxima predefinida
+    - Excepciones:
+        - Si la imagen pesa más de 2 MB, se despliega mensaje de error sobre el campo
+    - Requerimientos funcionales asociados:
+        - ...
+
+14. Crear relación entre nodos
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+        - Existen dos nodos
+    - Estímulo: con herramienta de relación seleccionada; clic y arrastre de un nodo a otro, o clic en uno y después clic en otro
+    - Respuesta: se crea una línea entre el primer nodo y el ratón hasta alcanzar el segundo nodo, y se establece una relación unidireccional
+    - Excepciones:
+        - Si se presiona Esc antes de alcanzar el segundo nodo, se elimina la línea y no se crea la relación
+    - Requerimientos funcionales asociados:
+        - ...
+
+15. Eliminar relación entre nodos
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+        - Existen dos nodos con una relación entre ellos
+    - Estímulo: clic sobre la línea de relación con herramienta de eliminación seleccionada
+    - Respuesta: se elimina línea de relación unidireccional
+    - Requerimientos funcionales asociados:
+        - ...
+
+16. Eliminar nodo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+        - Existe un nodo
+    - Estímulo: clic en botón de eliminación en menú contextual o sobre nodo con herramienta de eliminación seleccionada
+    - Respuesta: se despliega diálogo de confirmación
+    - Requerimientos funcionales asociados:
+        - ...
+
+17. Organizar nodos automáticamente
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en el botón de organización automática en la pantalla de edición
+    - Respuesta: organización de nodos en cuadrícula de acuerdo con tamaño A4 expandiéndose hacia abajo
+    - Requerimientos funcionales asociados:
+        - ...
+
+18. Exportar lienzo como imagen o PDF
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en su tablero de lienzos o en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en botón de exportación en la pantalla de edición
+    - Respuesta: despliegue de diálogo para seleccionar formato, transparencia, dimensiones, opción de organización de nodos automática sin modificar documento, y botón de descarga
+    - Requerimientos funcionales asociados:
+        - ...
 
 ### Desempeño
 
@@ -252,7 +375,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
 
 - Acceso a través de una URL determinada por el Centro de Estudios Aplicados
 - Hospedaje en un DigitalOcean Droplet de 512 MB de RAM y 10 GB de SSD
-- Servicio como
+- Ejecución como servicio de Linux
 - Totalidad del código en stack MERN (MongoDB, Express, React, Node)
 
 ### Comentarios Adicionales
