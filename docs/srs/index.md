@@ -20,15 +20,9 @@
     - [Restricciones](#restricciones)
     - [Dependencias](#dependencias)
   - [Requerimientos Específicos](#requerimientos-específicos)
-    - [Requerimientos de Interfaces Externas](#requerimientos-de-interfaces-externas)
-      - [Interfaces de Usuario](#interfaces-de-usuario)
-      - [Interfaces de Software](#interfaces-de-software)
-      - [Interfaces de Comunicación](#interfaces-de-comunicación)
     - [Features](#features)
     - [Desempeño](#desempeño)
-    - [Lógica de Base de Datos](#lógica-de-base-de-datos)
     - [Limitantes de Diseño](#limitantes-de-diseño)
-      - [Reliability](#reliability)
       - [Disponibilidad](#disponibilidad)
       - [Seguridad](#seguridad)
       - [Mantenibilidad](#mantenibilidad)
@@ -42,7 +36,7 @@ El presente documento define los requerimientos de la app «Rueda de Consecuenci
 
 La app es una herramienta gráfica de desarrollo de escenarios y consecuencias, donde se parte con un lienzo en blanco, se crean nodos con **Hechos** conocidos, y surgen más nodos con **Consecuencias** a partir de estos y de otras Consecuencias.
 
-El objetivo de esta herramienta es proveer un tablero digital para organizar ideas y desarrollar escenarios. Esta herramienta no contempla ningún tipo de análisis entre los nodos y sus contenidos.
+El objetivo de esta herramienta es proveer un tablero digital para organizar ideas y desarrollar escenarios en el Laboratorio de Futuros del [Centro de Estudios Aplicados](https://www.centrodeestudiosaplicados.org/). Esta herramienta no contempla ningún tipo de análisis entre los nodos y sus contenidos.
 
 ### Glosario
 
@@ -89,6 +83,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
 - Creación de lienzos
 - Compartición de lienzos (a usuarios o por enlace)
 - Gestión de permisos de usuarios por lienzo
+- Eliminación de lienzos
 - Creación de nodos con:
     - Nombre
     - Archivos adjuntos
@@ -126,25 +121,6 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
 - Descripción de input y output como mínimo
 - Requerimientos únicos
 
-### Requerimientos de Interfaces Externas
-- Nombre
-- Descripción de propósito
-- Fuente o destino
-- Rango válido, precisión y tolerancia
-- Unidades de medida
-- Tiempo
-- Relación con otros i/o
-- Formatos y organización de pantalla y ventana
-- Formatos de datos
-- Formatos de comandos
-- End messages
-
-#### Interfaces de Usuario
-
-#### Interfaces de Software
-
-#### Interfaces de Comunicación
-
 ### Features
 - Validación de input
 - Secuencia de operaciones
@@ -157,47 +133,129 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
     - Secuencias
     - Fórmulas para conversión
 
-1. Nombre del feature
-    - Introducción/propósito
-    - Estímulo/respuesta
+1. Creación de lienzo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en su tablero de lienzos
+    - Estímulo: clic en botón de creación
+    - Respuesta: se direcciona navegador a una pantalla de carga y posteriormente un lienzo en blanco
     - Requerimientos funcionales asociados:
         - ...
 
-2. ...
+2. Eliminación de lienzo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en su tablero de lienzos
+        - Es dueño de lienzo
+    - Estímulo: clic en botón de eliminación en menú contextual del lienzo
+    - Respuesta: se despliega diálogo para confirmar, si se se confirma, se elimina y desaparece el lienzo
+    - Excepciones:
+        - ...
+    - Requerimientos funcionales asociados:
+        - ...
+
+3. Cambio de nombre de lienzo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en su tablero de lienzos o en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en botón de cambio de nombre en menú contextual del lienzo o en el nombre en la pantalla de edición
+    - Respuesta: se despliega diálogo para cambiar y confirmar
+    - Excepciones:
+        - Si el lienzo ya no existe, se despliega diálogo de error y, al cerrar, se redirecciona a tablero
+    - Requerimientos funcionales asociados:
+        - ...
+
+4. Tablero de lienzos
+    - Requisitos:
+        - Usuario con sesión iniciada
+    - Estímulo: acceso a URL de tablero
+    - Respuesta: página con tableros del usuario
+    - Excepciones:
+        - Si no existe una sesión, redireccionar a página principal
+    - Requerimientos funcionales asociados:
+        - ...
+
+5. Guardar lienzo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en botón de guardado o Ctrl+S
+    - Respuesta: se guarda archivo y se muestra un mensaje de confirmación con fecha y hora de último guardado en la esquina de la pantalla
+    - Excepciones:
+        - Si el lienzo ya no existe, se despliega diálogo de error y, al cerrar, se redirecciona a tablero
+    - Requerimientos funcionales asociados:
+        - ...
+
+6. Compartir lienzo
+    - Requisitos:
+        - Usuario con sesión iniciada
+        - Está en su tablero de lienzos o en la pantalla de edición de lienzo
+        - Es dueño o colaborador de lienzo
+    - Estímulo: clic en botón de compartición en menú contextual del lienzo o en la pantalla de edición
+    - Respuesta: se despliega diálogo con botón para hacer público el lienzo y generar enlace, y cuadro de texto para agregar correo o nombre de usuario y enviar invitación
+    - Excepciones:
+        - Si el nombre de usuario o correo no existe, se despliega diálogo de error
+    - Requerimientos funcionales asociados:
+        - ...
+
+7. Remover usuarios con acceso a lienzo
+    - Requisitos:
+        - ...
+    - Estímulo:
+    - Respuesta:
+    - Excepciones:
+        - ...
+    - Requerimientos funcionales asociados:
+        - ...
+
+7. Feature
+    - Requisitos:
+        - ...
+    - Estímulo:
+    - Respuesta:
+    - Excepciones:
+        - ...
+    - Requerimientos funcionales asociados:
+        - ...
+
 
 ### Desempeño
-- Requerimientos estáticos (Capacity, e. g. no. de usuarios simultáneos, cantidad de información) y dinámicos (e. g. no. de transacciones en un período de tiempo para condiciones normales y pico)
 
-### Lógica de Base de Datos
-- Tipos de datos
-- Frecuencia de uso
-- Capacidad de acceso
-- Entidades y relaciones
-- Integridad y restricciones
-- Retención de datos
+- Trabajo simultáneo en hasta 5 lienzos
+- Trabajo simultáneo de hasta 45 personas por lienzo (30 personas en un grupo de clase + 50%)
+- 90% de operaciones de creación, modificación, y eliminación de nodos son procesadas en menos de 1 segundo
+- 90% de operaciones de creación, y eliminación de lienzo son procesadas en menos de 5 segundos
+- 90% de operaciones de compartición son procesadas en menos de 1 segundo
 
 ### Limitantes de Diseño
 
-#### Reliability
-
 #### Disponibilidad
 
+- 90% de arranques y reinicios de servidor se completan en menos de 15 segundos
+
 #### Seguridad
-- Protección:
-    - Técnicas de criptografía
-    - Logging
-    - Asignación de funciones a distintos módulos
-    - Restringir comunicación entre áŕeas
-    - Validar integridad de variables críticas
+
+- Uso de protocolo HTTPS
+- Autenticación basada en tokens
+- Protección contra Cross-Site Requests y Cross-Site Scripts
 
 #### Mantenibilidad
-- Modularidad, interfaces, complejidad
+
+- Las funcionalidades de la app se distribuyen jerárquicamente en distintos archivos que corresponden a los URL de API
+- Todos los endpoints se encuentran comentados con descripción, formato de input y formato de output
 
 #### Portabilidad
-- Facilidad de portabilidad de software a otros hosts/SOs
-    - Porcentaje de componentes y código que son host-dependent
-    - Uso de lenguaje portable
+
+- Acceso a través de una URL determinada por el Centro de Estudios Aplicados
+- Hospedaje en un DigitalOcean Droplet de 512 MB de RAM y 10 GB de SSD
+- Servicio como
+- Totalidad del código en stack MERN (MongoDB, Express, React, Node)
 
 ### Comentarios Adicionales
+
+- Por determinar: compartición por enlace permite contribuciones anonimizadas o funge como invitación a usuarios
+- El costo de hospedaje es de 4 USD por mes (2022-07-03)
 
 ## Apéndices
