@@ -74,8 +74,6 @@ IEEE. (1998). *IEEE Recommended Practice for Software Requirements Specification
 - Uso de 512 MB de RAM como máximo
 - Uso de 10 GB de almacenamiento SSD como máximo
 
-Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalOcean Droplets para su uso durante desarrollo y pruebas, pero se espera que los requerimientos sean mayores cuando la app se encuentre en producción.
-
 ### Funciones de Producto
 
 - Creación de lienzos
@@ -390,6 +388,7 @@ Nota: estas restricciones se plantean de acuerdo con el plan mínimo de DigitalO
 ### Comentarios Adicionales
 
 - Por determinar: compartición por enlace permite contribuciones anonimizadas o funge como invitación a usuarios
+- Las restricciones de memoria se plantean de acuerdo con el plan mínimo de DigitalOcean Droplets para su uso durante desarrollo y pruebas, pero se espera que los requerimientos sean mayores cuando la app se encuentre en producción
 - El costo de hospedaje es de 4 USD por mes (2022-07-03)
 
 ## Apéndices
