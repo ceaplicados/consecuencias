@@ -96,6 +96,12 @@ IEEE. (1998). *IEEE Recommended Practice for Software Requirements Specification
 - Almacenamiento de texto considerando caracteres no latinos (e. g. emojis)
 - Autoguardado
 - Almacenamiento de versiones pasadas para respaldo
+- Interacción con nodos
+    - Me gusta / No me gusta
+    - Seguir (para recibir notificaciones sobre su desarrollo)
+    - Comentarios
+    - Flag (para notificar un uso indebido)
+- Compartir nodos en redes sociales con una imagen generada con la procedencia del nodo, y una liga que lleve al nodo específico en el lienzo
 
 ### Características de Usuario
 
