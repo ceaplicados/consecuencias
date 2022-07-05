@@ -163,11 +163,11 @@ IEEE. (1998). *IEEE Recommended Practice for Software Requirements Specification
         - Menú lateral con botones Tablero y Lienzos compartidos conmigo
         - Barra horizontal con miniaturas de lienzos compartidos conmigo
         - Cuadrícula con miniaturas de lienzos propios donde la primera miniatura es el botón de creación de lienzo
-        - Recordatorio de confirmación de direccion si esta no ha sido confirmada
+        - Recordatorio de confirmación de dirección si esta no ha sido confirmada
     - Excepciones:
         - Si no existe una sesión, redireccionar a página principal
 
-5. Tablero de lienzos compartidos conmigo
+5. Tablero de lienzos compartidos con el usuario
     - Requisitos:
         - Usuario con sesión iniciada
     - Estímulo: acceso a URL de tablero o clic en botón de Tablero de menú lateral
