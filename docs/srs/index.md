@@ -31,21 +31,23 @@
 
 ## Introducción
 
-El presente documento define los requerimientos de la app «Rueda de Consecuencias» (```rdcons```) para quienes estén involucrados en el desarrollo de la primera versión. El documento sigue el esquema descrito por el estándar 830 de [IEEE (1998)](#referencias).
+El presente documento define los requerimientos de la app «Rueda de Consecuencias» (```consecuencias```) para quienes estén involucrados en el desarrollo de la primera versión. El documento sigue el esquema descrito por el estándar 830 de [IEEE (1998)](#referencias).
 
-La app es una herramienta gráfica de desarrollo de escenarios y consecuencias, donde se parte con un lienzo en blanco, se crean nodos con **Hechos** conocidos, y surgen más nodos con **Consecuencias** a partir de estos y de otras Consecuencias.
+La app es una herramienta gráfica para el desarrollo de escenarios y sus consecuencias, donde se parte con un lienzo en blanco, se crea un nodo inicial con un **Escenario** plausible, y se conectan nodos con **Consecuencias** directas, y consecuencias de las consecuencias en grado indeterminado.
 
 El objetivo de esta herramienta es proveer un tablero digital para organizar ideas y desarrollar escenarios en el Laboratorio de Futuros del [Centro de Estudios Aplicados](https://www.centrodeestudiosaplicados.org/). Esta herramienta no contempla ningún tipo de análisis entre los nodos y sus contenidos.
 
 ### Glosario
 
-- Consecuencias: tipo de nodo con consecuencias desarrolladas
-- Hechos: tipo de nodo con hechos conocidos
-- Diágogo: ventana dentro de la app, no se refiere a los diálogos del navegador
+- Consecuencia: tipo de nodo con consecuencias desarrolladas
+- Escenario: tipo de nodo que representa un futuro plausible
+- Diálogo: ventana dentro de la app, no se refiere a los diálogos del navegador
 
 ### Referencias
 
 Fyrd. (2022). *Can I use ECMAScript 2015 (ES6)?*. Recuperado 2022-07-03: [https://caniuse.com/?search=es6](https://caniuse.com/?search=es6)
+
+Glenn, J. C. (1972). Futurizing Teaching vs Futures Course. *Social Science Record, 9*(3). Syracuse University.
 
 IEEE. (1998). *IEEE Recommended Practice for Software Requirements Specifications*. Recuperado 2022-07-03: [http://www.cse.msu.edu/~cse870/IEEEXplore-SRS-template.pdf](http://www.cse.msu.edu/~cse870/IEEEXplore-SRS-template.pdf)
 
