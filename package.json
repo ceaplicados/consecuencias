@@ -1,0 +1,30 @@
+{
+  "name": "consecuencias",
+  "version": "1.0.0",
+  "description": "Rueda de Consecuencias: herramienta de desarrollo de escenarios",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceaplicados/consecuencias.git"
+  },
+  "keywords": [
+    "rueda",
+    "consecuencias",
+    "escenario",
+    "wheel",
+    "consequences",
+    "scenario"
+  ],
+  "author": "Álex Rodríguez González",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/ceaplicados/consecuencias/issues"
+  },
+  "homepage": "https://github.com/ceaplicados/consecuencias#readme"
+}
