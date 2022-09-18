@@ -7,6 +7,8 @@ require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 const app  = express();
 const port = process.env.PORT || 3001;
 
+app.use(express.json());
+
 const dbHost = process.env.MONGO_HOST;
 const dbPort = process.env.MONGO_PORT;
 const dbUser = process.env.MONGO_USER;
@@ -18,6 +20,10 @@ const connection = mongoose.connection;
 connection.once('open', () => {
     console.log('MongoDB connection successful');
 });
+
+const usersRouter = require('./routes/users');
+
+app.use('/users', usersRouter);
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
