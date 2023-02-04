@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Rueda de Consecuencias: herramienta de desarrollo de escenarios",
   "main": "index.js",
+  "type": "module",
   "directories": {
     "doc": "docs"
   },
