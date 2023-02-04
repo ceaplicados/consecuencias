@@ -5,8 +5,9 @@ const router = express.Router();
 
 router.route('/').get(NodeControl.getNodes);
 router.route('/add').post(NodeControl.addNode);
-router.route('/:id').get(NodeControl.getNode);
-router.route('/:id').delete(NodeControl.deleteNode);
-router.route('/update/:id').post(NodeControl.updateNode);
+router.route('/:id')
+    .get(NodeControl.getNode)
+    .delete(NodeControl.deleteNode)
+    .put(NodeControl.updateNode);
 
 export default router;
