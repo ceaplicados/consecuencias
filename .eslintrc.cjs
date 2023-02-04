@@ -28,6 +28,8 @@ module.exports = {
         // consistent spacing inside braces
         'object-curly-spacing': ['error', 'always'],
         'array-bracket-spacing': ['error', 'never'],
+        // space after comma
+        'comma-spacing': ['error', { 'before': false, 'after': true }],
         // force trailing commas
         'comma-dangle': ['error', 'always-multiline'],
         'eol-last': ['error', 'always'],
