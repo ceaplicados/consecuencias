@@ -32,5 +32,7 @@ module.exports = {
         'comma-dangle': ['error', 'always-multiline'],
         'eol-last': ['error', 'always'],
         'key-spacing': ['error', { 'afterColon': true }],
+        // unix line break (\n rather than \r\n)
+        'linebreak-style': ['error', 'unix'],
     },
 };
