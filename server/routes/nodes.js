@@ -1,5 +1,7 @@
-const router = require('express').Router();
-let Node     = require('../models/node.model');
+import express from 'express';
+import Node from '../models/node.model.js';
+
+const router = express.Router();
 
 router.route('/').get((req, res) => {
     Node.find()
@@ -49,4 +51,4 @@ router.route('/update/:id').post((req, res) => {
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-module.exports = router;
+export default router;

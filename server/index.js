@@ -1,8 +1,10 @@
-const express  = require('express');
-const path     = require('path');
-const mongoose = require('mongoose');
+import express from 'express';
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+import users from './routes/users.js';
+import nodes from './routes/nodes.js';
 
-require('dotenv').config({ path: path.resolve(__dirname, '.env') });
+dotenv.config({ path: './server/.env' });
 
 const app  = express();
 const port = process.env.PORT || 3001;
@@ -21,11 +23,8 @@ connection.once('open', () => {
     console.log('MongoDB connection successful');
 });
 
-const usersRouter = require('./routes/users');
-const nodesRouter = require('./routes/nodes');
-
-app.use('/users', usersRouter);
-app.use('/nodes', nodesRouter);
+app.use('/users', users);
+app.use('/nodes', nodes);
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
