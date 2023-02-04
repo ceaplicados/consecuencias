@@ -23,8 +23,9 @@ connection.once('open', () => {
     console.log('MongoDB connection successful');
 });
 
-app.use('/users', users);
-app.use('/nodes', nodes);
+app.use('/api/v1/users', users);
+app.use('/api/v1/nodes', nodes);
+app.use('*', (req, res) => res.status(404).json({ error: 'not found' }));
 
 app.listen(port, () => {
     console.log(`Server running on port: ${port}`);
